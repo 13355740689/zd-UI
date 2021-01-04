@@ -1,0 +1,31 @@
+@font-face {
+	font-family: "zd-icon";
+  src: url('./src/iconfont.woff') format('woff'); /* chrome, firefox */
+  src: url('./src/iconfont.ttf') format('truetype'); /* chrome, firefox, opera, Safari */
+  font-weight: normal;
+  font-display: inline;
+  font-style: normal;
+}
+
+[class*='zd-icon-'] {
+  font-family: "zd-icon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: normal;
+  line-height: 1;
+  vertical-align: baseline;
+  display: inline-block;
+  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.zd-icon-check:before {
+  content: "\e615";
+}
+
+.zd-icon-close:before {
+  content: "\e607";
+}
+
