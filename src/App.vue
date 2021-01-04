@@ -28,7 +28,18 @@
 	  <div class="row">
 	  	 <zdButton plain icon="zd-icon-check" circle type="primary"></zdButton>
 	  </div> -->
-	  <zdDialog title="温馨提示" width="40%" top="100px"></zdDialog>
+	  <zd-button type="primary" @click="visible=true">点击</zd-button>
+	  <zdDialog title="温馨提示" width="40%" top="100px" :visible.sync="visible">
+		  <ul>
+			  <li>1</li>
+			  <li>2</li>
+			  <li>3</li>
+		  </ul>
+		  <template v-slot=""footer>
+			  <zd-button type="primary" @click="visible=true">确定</zd-button>
+			  <zd-button @click="visible=false">取消</zd-button>
+		  </template>
+	  </zdDialog>
 	  <!-- <zdDialog>
 		  <template v-slot:title>
 			  <h3>我是标题</h3>
@@ -42,6 +53,11 @@ export default {
   name: 'App',
   components: {
 
+  },
+  data(){
+	  return{
+		  visible:false
+	  }
   },
   methods:{
 	  fn(){

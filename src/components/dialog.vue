@@ -1,5 +1,5 @@
 <template>
-  <div class="zd-dialog__wrapper">
+  <div class="zd-dialog__wrapper" v-show="visible" @click.self="handleClose">
     <div class="zd-dialog"  :style="{width, marginTop:top}">
       <div class="zd-dialog__header">
 		  <slot name="title">
@@ -7,15 +7,14 @@
 		  </slot>
         
         <button class="zd-dialog__headerbtn">
-          <i class="zd-icon-close"></i>
+          <i class="zd-icon-close" @click="handleClose"></i>
         </button>
       </div>
       <div class="zd-dialog__body">
-        <span>这是一段信息</span>
+        <slot></slot>
       </div>
-      <div class="zd-dialog__footer">
-        <zd-button>取消</zd-button>
-        <zd-button type="primary">确定</zd-button>
+      <div class="zd-dialog__footer" v-if="$slots.footer">
+        <slot name="footer"></slot>
       </div>
     </div>
   </div>
@@ -36,6 +35,15 @@
 			top:{
 				type:String,
 				default:'15vh'
+			},
+			visible:{
+				type:Boolean,
+				default:false
+			}
+		},
+		methods:{
+			handleClose(){
+				this.$emit('update:visible', false)
 			}
 		}
 	}
