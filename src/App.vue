@@ -35,11 +35,42 @@
 			  <li>2</li>
 			  <li>3</li>
 		  </ul>
-		  <template v-slot=""footer>
+		  <template v-slot="footer">
 			  <zd-button type="primary" @click="visible=true">确定</zd-button>
 			  <zd-button @click="visible=false">取消</zd-button>
 		  </template>
 	  </zdDialog>
+	  <zd-input placeholder="请输入用户名" v-model="username" clearable></zd-input>
+	  <zd-input placeholder="请输入用户名" v-model="username" show-password></zd-input>
+	  
+	  <div>
+		   <zd-switch v-model="active" active-color="#13ce66" inactive-color="green" name="username"></zd-switch>
+	  </div>
+	  
+	  <div>
+			<zd-radio label="1" v-model="gender">男</zd-radio>
+			<zd-radio label="0" v-model="gender">女</zd-radio>
+	  </div>
+	 <div>
+		 <zdRadioGroup v-model="gender">
+			 <zd-radio label="1">男</zd-radio>
+			 <zd-radio label="0">女</zd-radio>
+		 </zdRadioGroup>
+	 </div>
+	 <div>
+		 <zdCheckbox v-model="active">是否选中</zdCheckbox>
+		 <zdCheckboxGroup v-model="hobby">
+			 <zdCheckbox label="抽烟"></zdCheckbox>
+			 <zdCheckbox label="喝酒"></zdCheckbox>
+			 <zdCheckbox label="烫头"></zdCheckbox>
+		 </zdCheckboxGroup>
+	 </div>
+	 
+	 <zdForm :model="model" label-width="100px">
+		 <zdFormItem label="用户名">
+			 <zd-input placeholder="请输入用户名"></zd-input>
+		 </zdFormItem>
+	 </zdForm>
 	  <!-- <zdDialog>
 		  <template v-slot:title>
 			  <h3>我是标题</h3>
@@ -56,7 +87,15 @@ export default {
   },
   data(){
 	  return{
-		  visible:false
+		  visible:false,
+		  username:'zd',
+		  active:false,
+		  gender:1,
+		  active:false,
+		  hobby:['抽烟', '喝酒', '烫头'],
+		  model:{
+			  
+		  }
 	  }
   },
   methods:{
@@ -73,5 +112,9 @@ export default {
 	.zd-button {
 		margin-right: 20px;
 	}
+}
+
+.zd-input{
+	width: 180px;
 }
 </style>

@@ -21,11 +21,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.zd-icon-check:before {
-  content: "\e615";
+.zd-icon-view:before {
+  content: "\e6b1";
 }
 
-.zd-icon-close:before {
+.zd-icon-guanbi:before {
   content: "\e607";
+}
+
+.zd-icon-check:before {
+  content: "\e615";
 }
 

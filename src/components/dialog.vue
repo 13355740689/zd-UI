@@ -1,23 +1,26 @@
 <template>
-  <div class="zd-dialog__wrapper" v-show="visible" @click.self="handleClose">
-    <div class="zd-dialog"  :style="{width, marginTop:top}">
-      <div class="zd-dialog__header">
-		  <slot name="title">
-			  <span class="zd-dialog__title">{{title}}</span>
-		  </slot>
-        
-        <button class="zd-dialog__headerbtn">
-          <i class="zd-icon-close" @click="handleClose"></i>
-        </button>
-      </div>
-      <div class="zd-dialog__body">
-        <slot></slot>
-      </div>
-      <div class="zd-dialog__footer" v-if="$slots.footer">
-        <slot name="footer"></slot>
-      </div>
-    </div>
-  </div>
+	<transition name="dialog-fade">
+		<div class="zd-dialog__wrapper" v-show="visible" @click.self="handleClose">
+		  <div class="zd-dialog"  :style="{width, marginTop:top}">
+		    <div class="zd-dialog__header">
+				  <slot name="title">
+					  <span class="zd-dialog__title">{{title}}</span>
+				  </slot>
+		      
+		      <button class="zd-dialog__headerbtn">
+		        <i class="zd-icon-close" @click="handleClose"></i>
+		      </button>
+		    </div>
+		    <div class="zd-dialog__body">
+		      <slot></slot>
+		    </div>
+		    <div class="zd-dialog__footer" v-if="$slots.footer">
+		      <slot name="footer"></slot>
+		    </div>
+		  </div>
+		</div>
+	</transition>
+
 </template>
 
 <script>
@@ -109,5 +112,23 @@
 	      }
 	    }
 	  }
+	}
+	
+	.dialog-fade-enter-active{
+		animation: fade .3s;
+	}
+	.dialog-fade-leave-active{
+		animation: fade .3s reverse;
+	}
+	
+	@keyframes fade {
+		0% {
+			opacity: 0;
+			transform: translateY(-20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0px);
+		}
 	}
 </style>

@@ -1,3 +1,7 @@
 module.exports = {
-	lintOnSave: false
+	lintOnSave: false,
+	devServer: {
+		hot: true,
+		disableHostCheck: true
+	  }
 }
