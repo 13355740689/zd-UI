@@ -1,29 +1,18 @@
-# zd-ui
+#zd-ui
 
-## Project setup
+### 初始化vue项目
 ```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
+vue create demo
 ```
 
-### Compiles and minifies for production
+### 安装组件库
 ```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
+yarn add heima-ui
 ```
 
-### Lints and fixes files
+### 全局导入
 ```
-npm run lint
-```
+import HeimaUI from 'heima-ui' import 'heima-ui/lib/heimui.css'
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Vue.use(HeimaUI)
+```
